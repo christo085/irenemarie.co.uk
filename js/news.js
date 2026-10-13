@@ -43,6 +43,16 @@
           }
           html += '</figure>';
         }
+        if (item.video) {
+          html += '<figure class="news-media">';
+          html += '<video controls preload="none" playsinline class="news-image"' + (item.videoPoster ? ' poster="' + escapeHtml(item.videoPoster) + '"' : '') + ' aria-label="' + escapeHtml(item.videoLabel || item.title || 'News video') + '">';
+          html += '<source src="' + escapeHtml(item.video) + '" type="video/mp4">';
+          html += '</video>';
+          if (item.videoCaption) {
+            html += '<figcaption class="news-caption">' + escapeHtml(item.videoCaption) + '</figcaption>';
+          }
+          html += '</figure>';
+        }
         if (dateStr) {
           html += '<p class="meta">' + dateStr + '</p>';
         }
